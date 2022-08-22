@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://PostProcess/lensflareLess4.png" type="Texture" id=1]
+
+[node name="ReactorLight" type="Light2D"]
+rotation = -0.523599
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+color = Color( 0.14902, 0.921569, 0.980392, 1 )
+energy = 1.4

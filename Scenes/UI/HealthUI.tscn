@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/UI/HealthUI.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/HealthUI/ReactorShield.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/HealthUI/ReactorEmpty.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/UI/Lights/EmergencyGlow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/UI/HealthUI/ReactorEmergencyCoreLowSaturation.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/HealthUI/EmergencyCoreGlowDarker.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/HealthUI/ReactorCore.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/UI/Lights/CoreGlow.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/UI/HealthUI/ReactorOutlineThick.png" type="Texture" id=10]
+
+[sub_resource type="Curve" id=1]
+min_value = 0.98
+max_value = 1.05
+_data = [ Vector2( 0, 0.98 ), 0.0, 0.326666, 0, 1, Vector2( 0.214286, 1.05 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.98 ), -0.0890908, 0.0, 1, 0 ]
+
+[node name="HealthUI" type="Control"]
+pause_mode = 2
+light_mask = 32
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -240.0
+margin_top = -40.0
+margin_right = 240.0
+margin_bottom = -8.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+smoothPulse = SubResource( 1 )
+
+[node name="center" type="CenterContainer" parent="."]
+light_mask = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -240.0
+margin_right = 240.0
+margin_bottom = 32.0
+grow_horizontal = 2
+rect_min_size = Vector2( 480, 32 )
+size_flags_horizontal = 3
+
+[node name="maxCoresUI" type="TextureRect" parent="center"]
+light_mask = 0
+margin_left = 224.0
+margin_right = 256.0
+margin_bottom = 32.0
+grow_horizontal = 2
+rect_min_size = Vector2( 32, 32 )
+size_flags_horizontal = 5
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+
+[node name="currentShieldsUI" type="TextureRect" parent="center/maxCoresUI"]
+show_behind_parent = true
+light_mask = 512
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+
+[node name="currentCoresUI" type="TextureRect" parent="center/maxCoresUI"]
+light_mask = 32
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 5
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 2
+
+[node name="CoreGlow" parent="center/maxCoresUI/currentCoresUI" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 16, 16 )
+
+[node name="emergencyLineUI" type="TextureRect" parent="center/maxCoresUI"]
+light_mask = 64
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+rect_pivot_offset = Vector2( 16, 16 )
+size_flags_horizontal = 3
+texture = ExtResource( 10 )
+
+[node name="EmergencyGlow" parent="center/maxCoresUI/emergencyLineUI" instance=ExtResource( 4 )]
+light_mask = 0
+position = Vector2( 20, 20 )
+shadow_item_cull_mask = 32
+
+[node name="emergencyCoreUI" type="TextureRect" parent="center/maxCoresUI"]
+light_mask = 128
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_horizontal = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
+[node name="emergencyCoreGlow" parent="center/maxCoresUI/emergencyCoreUI" instance=ExtResource( 9 )]
+position = Vector2( 16, 16 )
+texture = ExtResource( 6 )
+range_item_cull_mask = 0
+
+[node name="VSeparator" type="VSeparator" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0

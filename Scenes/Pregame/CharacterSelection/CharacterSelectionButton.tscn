@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://UIThemes/UITheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/Pregame/CharacterSelection/CharacterSelectionButton.gd" type="Script" id=2]
+[ext_resource path="res://UIThemes/Fonts/PixelFont_10.tres" type="DynamicFont" id=3]
+[ext_resource path="res://UIThemes/UIStyles/stylebox_violet_tint.tres" type="StyleBox" id=4]
+[ext_resource path="res://Sprites/Actors/Player/BasePlayerSprite.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Run"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.776471, 0.67451, 0.796078, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.431373, 0.352941, 0.447059, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="CharacterSelectionButton" type="Control"]
+margin_right = 90.0
+rect_min_size = Vector2( 70, 0 )
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../SelectButton")
+reset_on_save = false
+playback_speed = 0.6
+anims/Idle = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+anims/Run = SubResource( 3 )
+
+[node name="CharacterStatDisplay" type="RichTextLabel" parent="."]
+margin_left = 1.0
+margin_top = 60.0
+margin_right = 51.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 70, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_colors/default_color = Color( 0.839216, 0.839216, 0.839216, 1 )
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+fit_content_height = true
+
+[node name="SelectButton" type="Button" parent="."]
+margin_right = 70.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 70, 60 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 1 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 35, 30 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 5 )
+offset = Vector2( 0, 1 )
+hframes = 11
+vframes = 2
+
+[node name="MetaParent" type="CanvasLayer" parent="."]
+layer = 5

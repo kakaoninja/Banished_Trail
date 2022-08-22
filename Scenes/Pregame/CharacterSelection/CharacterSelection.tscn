@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Pregame/CharacterSelection/CharacterSelection.gd" type="Script" id=1]
+[ext_resource path="res://UIThemes/Fonts/TopicFont.tres" type="DynamicFont" id=2]
+
+[node name="CharacterSelection" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="Title" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.075
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Select your Character!"
+
+[node name="Hint" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+text = "Hover over underlined words to see what they affect!"
+
+[node name="HBox" type="HBoxContainer" parent="Control"]
+margin_top = 55.0
+margin_right = 480.0
+margin_bottom = 55.0
+grow_horizontal = 2
+rect_min_size = Vector2( 440, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1

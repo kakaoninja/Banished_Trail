@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="SelectButton" type="Button"]
+margin_right = 48.0
+margin_bottom = 60.0
+mouse_default_cursor_shape = 5

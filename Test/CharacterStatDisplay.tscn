@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UIThemes/UITheme.tres" type="Theme" id=1]
+
+[node name="CharacterStatDisplay" type="RichTextLabel"]
+margin_left = 196.0
+margin_top = 78.0
+margin_right = 244.0
+margin_bottom = 138.0
+rect_min_size = Vector2( 48, 0 )
+mouse_default_cursor_shape = 6
+theme = ExtResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "dreck"
+text = "dreck"
+fit_content_height = true

@@ -1,0 +1,318 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://UIThemes/UITheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/UI/SettingsScripts/MasterLabel.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/SettingsScripts/BloomIntensitySlider.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/UI/SettingsScripts/MasterVolumeSlider.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/UI/SettingsScripts/MusicLabel.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/UI/SettingsMenu.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/UI/SettingsScripts/BloomLabel.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/UI/SettingsScripts/SoundLabel.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/UI/SettingsScripts/MusicVolumeSlider.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/UI/SettingsScripts/SoundVolumeSlider.gd" type="Script" id=10]
+[ext_resource path="res://UIThemes/Fonts/TopicFont.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Scenes/prefabScenes/BlurShader.tscn" type="PackedScene" id=12]
+[ext_resource path="res://UIThemes/Fonts/TimeandSpace-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_round.tres" type="StyleBox" id=15]
+
+[sub_resource type="StyleBoxFlat" id=6309]
+bg_color = Color( 0.482353, 0.482353, 0.482353, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0.00784314, 0.0980392, 1 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 6
+anti_aliasing_size = 0.3
+
+[sub_resource type="DynamicFont" id=6310]
+size = 8
+use_filter = true
+font_data = ExtResource( 13 )
+
+[node name="SettingsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -125.0
+margin_right = 150.0
+margin_bottom = 125.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+margin_right = 300.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 300, 250 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Background" type="Panel" parent="CenterContainer/MarginContainer"]
+margin_right = 300.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 15 )
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 290.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 280, 230 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer2"]
+margin_right = 280.0
+margin_bottom = 230.0
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer"]
+margin_right = 280.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 11 )
+text = "Video Settings"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer2/VBoxContainer"]
+margin_top = 31.0
+margin_right = 280.0
+margin_bottom = 61.0
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 70.0
+margin_bottom = 25.0
+hint_tooltip = "Borderless wont work for some Reason"
+mouse_filter = 0
+text = "Fullscreen"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 74.0
+margin_right = 246.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+
+[node name="Fullscreen" type="CheckBox" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 250.0
+margin_right = 280.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+focus_mode = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+enabled_focus_mode = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/MarginContainer2/VBoxContainer"]
+margin_top = 65.0
+margin_right = 280.0
+margin_bottom = 92.0
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer2"]
+margin_top = 3.0
+margin_right = 85.0
+margin_bottom = 23.0
+text = "Bloom & Glow"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer2"]
+margin_left = 89.0
+margin_right = 156.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+
+[node name="BloomLabel" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer2"]
+margin_left = 160.0
+margin_top = 3.0
+margin_right = 176.0
+margin_bottom = 23.0
+text = "69"
+script = ExtResource( 7 )
+
+[node name="BloomSlider" type="HSlider" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer2"]
+margin_left = 180.0
+margin_right = 280.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 100, 27 )
+theme = ExtResource( 1 )
+step = 2.0
+rounded = true
+ticks_on_borders = true
+script = ExtResource( 3 )
+
+[node name="Label2" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer"]
+margin_top = 96.0
+margin_right = 280.0
+margin_bottom = 123.0
+custom_fonts/font = ExtResource( 11 )
+text = "Audio Settings"
+align = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/MarginContainer2/VBoxContainer"]
+margin_top = 127.0
+margin_right = 280.0
+margin_bottom = 154.0
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+margin_top = 3.0
+margin_right = 47.0
+margin_bottom = 23.0
+theme = ExtResource( 1 )
+text = "Master"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+margin_left = 51.0
+margin_right = 156.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+
+[node name="MasterLabel" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+margin_left = 160.0
+margin_top = 3.0
+margin_right = 176.0
+margin_bottom = 23.0
+text = "69"
+script = ExtResource( 2 )
+
+[node name="MasterVolumeSlider" type="HSlider" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+margin_left = 180.0
+margin_right = 280.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 100, 27 )
+step = 2.0
+rounded = true
+ticks_on_borders = true
+script = ExtResource( 4 )
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/MarginContainer2/VBoxContainer"]
+margin_top = 158.0
+margin_right = 280.0
+margin_bottom = 185.0
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer4"]
+margin_top = 3.0
+margin_right = 39.0
+margin_bottom = 23.0
+text = "Music"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer4"]
+margin_left = 43.0
+margin_right = 156.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+
+[node name="MusicLabel" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer4"]
+margin_left = 160.0
+margin_top = 3.0
+margin_right = 176.0
+margin_bottom = 23.0
+text = "69"
+script = ExtResource( 5 )
+
+[node name="MusicVolumeSlider" type="HSlider" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer4"]
+margin_left = 180.0
+margin_right = 280.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 100, 27 )
+step = 2.0
+rounded = true
+ticks_on_borders = true
+script = ExtResource( 9 )
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CenterContainer/MarginContainer2/VBoxContainer"]
+margin_top = 189.0
+margin_right = 280.0
+margin_bottom = 216.0
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer5"]
+margin_top = 3.0
+margin_right = 90.0
+margin_bottom = 23.0
+theme = ExtResource( 1 )
+text = "Sound Effects"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer5"]
+margin_left = 94.0
+margin_right = 156.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+
+[node name="SoundLabel" type="Label" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer5"]
+margin_left = 160.0
+margin_top = 3.0
+margin_right = 176.0
+margin_bottom = 23.0
+text = "69"
+script = ExtResource( 8 )
+
+[node name="SoundVolumeSlider" type="HSlider" parent="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer5"]
+margin_left = 180.0
+margin_right = 280.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 100, 27 )
+theme = ExtResource( 1 )
+step = 2.0
+rounded = true
+ticks_on_borders = true
+script = ExtResource( 10 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+margin_top = 310.0
+margin_right = 640.0
+margin_bottom = 342.0
+rect_min_size = Vector2( 640, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="CenterContainer2"]
+margin_left = 288.0
+margin_right = 352.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 64, 32 )
+focus_mode = 0
+custom_styles/hover = SubResource( 6309 )
+custom_styles/normal = ExtResource( 15 )
+text = "BACK"
+
+[node name="Blurshader" parent="." instance=ExtResource( 12 )]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 428.0
+margin_top = 57.0
+margin_right = 474.0
+margin_bottom = 67.0
+rect_rotation = 30.0
+hint_tooltip = "DEFINETLY NOT, but thanks for asking.
+but still no"
+mouse_filter = 0
+custom_fonts/font = SubResource( 6310 )
+text = "Screenshake?"
+
+[connection signal="toggled" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer/Fullscreen" to="." method="_on_Fullscreen_toggled"]
+[connection signal="mouse_exited" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer2/BloomSlider" to="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer2/BloomSlider" method="_on_BloomSlider_mouse_exited"]
+[connection signal="value_changed" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer2/BloomSlider" to="." method="_on_BloomSlider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer2/BloomSlider" to="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer2/BloomLabel" method="_on_BloomSlider_value_changed"]
+[connection signal="mouse_exited" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer3/MasterVolumeSlider" to="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer3/MasterVolumeSlider" method="_on_MasterVolumeSlider_mouse_exited"]
+[connection signal="value_changed" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer3/MasterVolumeSlider" to="." method="_on_MasterVolumeSlider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer3/MasterVolumeSlider" to="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer3/MasterLabel" method="_on_MasterVolumeSlider_value_changed"]
+[connection signal="mouse_exited" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer4/MusicVolumeSlider" to="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer4/MusicVolumeSlider" method="_on_MusicVolumeSlider_mouse_exited"]
+[connection signal="value_changed" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer4/MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer4/MusicVolumeSlider" to="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer4/MusicLabel" method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="mouse_exited" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer5/SoundVolumeSlider" to="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer5/SoundVolumeSlider" method="_on_SoundVolumeSlider_mouse_exited"]
+[connection signal="value_changed" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer5/SoundVolumeSlider" to="." method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer5/SoundVolumeSlider" to="CenterContainer/MarginContainer2/VBoxContainer/HBoxContainer5/SoundLabel" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="pressed" from="CenterContainer2/Button" to="." method="_on_Button_pressed"]

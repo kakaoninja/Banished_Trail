@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/UI/RotatingLight.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/HealthUI/ReactorCoreGlow.png" type="Texture" id=2]
+
+[node name="CoreGlow" type="Light2D"]
+light_mask = 0
+texture = ExtResource( 2 )
+energy = 0.7
+range_item_cull_mask = 32
+shadow_item_cull_mask = 0
+script = ExtResource( 1 )

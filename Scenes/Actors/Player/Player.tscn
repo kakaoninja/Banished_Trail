@@ -1,0 +1,348 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Sprites/Actors/Player/BasePlayerSprite.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Actors/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://PostProcess/lensflareLess4.png" type="Texture" id=3]
+[ext_resource path="res://PostProcess/roundLight40_40.png" type="Texture" id=4]
+[ext_resource path="res://PostProcess/roundLight20_20.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 5.0
+height = 0.0
+
+[sub_resource type="Animation" id=5]
+resource_name = "IdleLeft"
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 12, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ReactorLightFlare:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -0.5, 2.5 ), Vector2( -0.5, 1.5 ), Vector2( -0.5, 0.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ReactorLightS:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -0.5, 2.5 ), Vector2( -0.5, 1.5 ), Vector2( -0.5, 0.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ReactorLightM:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -0.5, 2.5 ), Vector2( -0.5, 1.5 ), Vector2( -0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "IdleRight"
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ReactorLightFlare:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.5, 2.5 ), Vector2( 0.5, 1.5 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ReactorLightS:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.5, 2.5 ), Vector2( 0.5, 1.5 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ReactorLightM:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0.5, 2.5 ), Vector2( 0.5, 1.5 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ReactorLightFlare:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ReactorLightS:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 1.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ReactorLightM:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 2.5 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "RunLeft"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 16, 17, 18, 19, 20, 21 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ReactorLightFlare:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2.5, 1.5 ), Vector2( -1.5, 2.5 ), Vector2( -2.5, 0.5 ), Vector2( -2.5, -0.5 ), Vector2( -2.5, 1.5 ), Vector2( -1.5, 2.5 ), Vector2( -2.5, 0.5 ), Vector2( -2.5, -0.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ReactorLightS:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2.5, 1.5 ), Vector2( -1.5, 2.5 ), Vector2( -2.5, 0.5 ), Vector2( -2.5, -0.5 ), Vector2( -2.5, 1.5 ), Vector2( -1.5, 2.5 ), Vector2( -2.5, 0.5 ), Vector2( -2.5, -0.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ReactorLightM:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2.5, 1.5 ), Vector2( -1.5, 2.5 ), Vector2( -2.5, 0.5 ), Vector2( -2.5, -0.5 ), Vector2( -2.5, 1.5 ), Vector2( -1.5, 2.5 ), Vector2( -2.5, 0.5 ), Vector2( -2.5, -0.5 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "RunRight"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ReactorLightFlare:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 2.5, 1.5 ), Vector2( 1.5, 2.5 ), Vector2( 2.5, 0.5 ), Vector2( 2.5, -0.5 ), Vector2( 2.5, 1.5 ), Vector2( 2.5, 2.5 ), Vector2( 2.5, 0.5 ), Vector2( 2.5, -0.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ReactorLightS:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 2.5, 1.5 ), Vector2( 1.5, 2.5 ), Vector2( 2.5, 0.5 ), Vector2( 2.5, -0.5 ), Vector2( 2.5, 1.5 ), Vector2( 2.5, 2.5 ), Vector2( 2.5, 0.5 ), Vector2( 2.5, -0.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ReactorLightM:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 2.5, 1.5 ), Vector2( 1.5, 2.5 ), Vector2( 2.5, 0.5 ), Vector2( 2.5, -0.5 ), Vector2( 2.5, 1.5 ), Vector2( 2.5, 2.5 ), Vector2( 2.5, 0.5 ), Vector2( 2.5, -0.5 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 50.0
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 3.0
+height = 14.0
+
+[node name="Player" type="KinematicBody2D"]
+z_index = 1
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="PlayerSprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 11
+vframes = 2
+frame = 2
+
+[node name="EnvironmentCollider" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 7 )
+shape = SubResource( 7 )
+one_way_collision_margin = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/IdleLeft = SubResource( 5 )
+anims/IdleRight = SubResource( 10 )
+anims/RESET = SubResource( 6 )
+anims/RunLeft = SubResource( 9 )
+anims/RunRight = SubResource( 8 )
+
+[node name="KnockbackArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="Knockback" type="CollisionShape2D" parent="KnockbackArea"]
+shape = SubResource( 2 )
+
+[node name="KnockbackTimer" type="Timer" parent="KnockbackArea"]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource( 11 )
+
+[node name="ReactorLightFlare" type="Light2D" parent="."]
+position = Vector2( 0.5, 0.5 )
+rotation = -0.523599
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+color = Color( 0.14902, 0.921569, 0.980392, 1 )
+energy = 1.1
+
+[node name="ReactorLightM" type="Light2D" parent="."]
+visible = false
+position = Vector2( 1.5, 2.5 )
+texture = ExtResource( 4 )
+color = Color( 0.14902, 0.921569, 0.980392, 0 )
+energy = 0.6
+
+[node name="ReactorLightS" type="Light2D" parent="."]
+position = Vector2( 0.5, 1.5 )
+scale = Vector2( 0.325, 0.325 )
+texture = ExtResource( 5 )
+color = Color( 0.14902, 0.921569, 0.980392, 1 )
+energy = 0.1

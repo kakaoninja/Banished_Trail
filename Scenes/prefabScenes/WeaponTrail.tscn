@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Weapons/DaggerTrail.png" type="Texture" id=1]
+[ext_resource path="res://Particles/ParticleResources/RotatingWeaponParticle.tres" type="Material" id=2]
+
+[node name="WeaponTrail" type="Particles2D"]
+z_index = -1
+amount = 10
+lifetime = 0.15
+local_coords = false
+draw_order = 1
+process_material = ExtResource( 2 )
+texture = ExtResource( 1 )
