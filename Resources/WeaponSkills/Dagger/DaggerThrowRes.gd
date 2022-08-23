@@ -12,7 +12,7 @@ var groups = [
 var hit 		= 3
 var aspeed		= 0.9
 var pspeed		= 80
-var proj		= 1
+var proj		= 7
 
 func set_base_stats (res):
 	res.set_projectiles (proj)

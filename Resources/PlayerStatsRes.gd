@@ -43,6 +43,14 @@ func get_skill ():
 #player movement
 var ACCELERATION	= 0.3
 
+var playerWallHit: bool
+
+func playerMovementSpeedCalculation ():
+	if playerWallHit != true:
+		return finalMovementSpeed
+	else:
+		return 0.0
+
 var playerPosition = Vector2.ZERO setget set_player_position, get_player_position
 
 func set_player_position (value):
@@ -234,17 +242,17 @@ func set_projectileForks (value):
 func set_projectilePierces (value):
 	projectilePierces = value
 
-#func get_projectiles ():
-#	emit_signal("got_projectiles")
-#
-#func get_projectileChains ():
-#	emit_signal("got_projectileChains")
-#
-#func get_projectileForks ():
-#	emit_signal("got_projectileForks")
-#
-#func get_projectilePierces ():
-#	emit_signal("got_projectilePierces")
+func get_projectiles ():
+	emit_signal("got_projectiles")
+
+func get_projectileChains ():
+	emit_signal("got_projectileChains")
+
+func get_projectileForks ():
+	emit_signal("got_projectileForks")
+
+func get_projectilePierces ():
+	emit_signal("got_projectilePierces")
 
 #movespeed
 var baseMovementSpeed		= 100.0	setget set_baseMovementSpeed

@@ -25,16 +25,13 @@ func attack_speed_timer (timerNode):
 #functions in this category must be present in the weaponSkill script
 
 func handle_snapshotAimDegrees (skill, value):
-	if skill.snapshotAimDegrees != null:
-		return skill.snapshotAimDegrees
-	else:
 		skill.snapshotAimDegrees = value
 
-func handle_snapshotPlayerMovement (skill, value):
-	if skill.snapshotPlayerMovement != null:
-		return skill.snapshotPlayerMovement
-	else:
-		skill.snapshotPlayerMovement = value
+func handle_snapshotPlayerVector (skill, value):
+		skill.snapshotPlayerVector = value
+
+func handle_snapshotPlayerPosition (skill, value):
+		skill.snapshotPlayerPosition = value
 
 func movement (parent, skill, delta):
 	if parent.is_in_group ("PROJECTILE"):
@@ -46,9 +43,13 @@ func movement (parent, skill, delta):
 				#create combined speed of projectileSpeed and playerSpeed
 				#skill.combinedSpeed
 				#skill.combinedMove
-				skill.projectileVector = (skill.position - playerStatsRes.playerPosition)
+				
+				#offset_rotator(null, null, skill.offsetAngleRad, Vector2.ZERO)).normalized()
+				#maybe need this for wall exception
+				#remove angle from playermovement vector and multiply playermovementvector * playerMovementSpeed
+				skill.projectileVector = (skill.position - skill.snapshotPlayerPosition)
 				skill.projectileMove = skill.projectileVector.normalized () * playerStatsRes.finalProjectileSpeed
-				skill.combinedMove = skill.projectileMove + skill.snapshotPlayerMovement
+				skill.combinedMove = skill.projectileMove + skill.snapshotPlayerVector  * playerStatsRes.playerMovementSpeedCalculation ()
 				skill.move_and_collide (skill.combinedMove * delta)
 				pass
 				#skill.position -= (skill.transform.y * playerStatsRes.finalProjectileSpeed * delta) 
@@ -72,11 +73,13 @@ func skill_spawner (parent, weaponPath):
 			var newProjectile = weaponPath.instance ()
 			# starts with 0 which is divideable by 2
 			if i % 2 == 0 and i != 0:
-				var projAngle = (- playerStatsRes.finalProjectileSpread * (i - 1))
+				var projAngle = (- playerStatsRes.finalProjectileSpread * (i / 2))
+				newProjectile.offsetAngleRad += projAngle
 				newProjectile.rotationDegrees += projAngle
 				newProjectile.rotationOffset += projAngle
 			elif i != 0:
-				var projAngle = (playerStatsRes.finalProjectileSpread * i)
+				var projAngle = (playerStatsRes.finalProjectileSpread * ((i / 2) + 1))
+				newProjectile.offsetAngleRad += projAngle
 				newProjectile.rotationDegrees += projAngle
 				newProjectile.rotationOffset += projAngle
 			parent.add_child (newProjectile)
@@ -131,7 +134,9 @@ func offset_rotator(toRotate, posOffset, rotationRad, currentPos):
 	var pos= Vector2.ZERO
 	pos.x = currentPos.x + (cos (rotationRad)) * posOffset
 	pos.y = currentPos.y + (sin (rotationRad)) * posOffset
-	toRotate.set_position (pos)
+	if toRotate != null:
+		toRotate.set_position (pos)
+	return pos
 
 func pivot_rotator (parent, skill, toRotate, particleNode, offsetAngle, rotDegrees, aimingDegrees, aiming: bool):
 	#offsetAngle = 90 if toRotate is flipped (eg: circular stationary rotation, with skill facing in movement)

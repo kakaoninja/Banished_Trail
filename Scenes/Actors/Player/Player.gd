@@ -6,6 +6,7 @@ var professionRes: ProfessionRes = load ("res://Resources/Professions/Profession
 var weaponSkillStatsRes: WeaponSkillStatsRes = load ("res://Resources/WeaponSkills/WeaponSkillStatsRes.tres")
 
 #initialize nodes
+onready var wallDetectArea		= get_node	("WallDetection")
 onready var playerSprite 		= get_node	("PlayerSprite")
 onready var animationPlayer 	= get_node	("AnimationPlayer")
 onready var knockback			= get_node	("KnockbackArea/Knockback")
@@ -17,10 +18,14 @@ onready var knockback			= get_node	("KnockbackArea/Knockback")
 onready var Lightning		= preload	("res://Particles/Lightning.tscn")
 
 var movement		= Vector2.ZERO
-var input			= Vector2.ZERO
+var input_vector	= Vector2.ZERO
 var facingRight		= true
+var playerPosCheck
+
 
 func _ready ():
+	wallDetectArea.connect ("body_entered", self, "wallDetection_body_entered")
+	wallDetectArea.connect ("body_exited", self, "wallDetection_body_exited")
 	knockback.visible = false
 	self.add_to_group ("PLAYER")
 	animationPlayer.play("IdleRight")
@@ -28,8 +33,11 @@ func _ready ():
 	
 
 func _process (_delta):
-	player_movement (input)
+	player_movement ()
 	player_position ()
+
+
+		#playerStatsRes.playerWallHit = true
 
 func color_init (professionSelection):
 	professionRes.set_player_sprite_and_color (playerStatsRes.professionID)
@@ -42,9 +50,10 @@ func player_position ():
 	playerStatsRes.set_player_position (global_position)
 	playerStatsRes.set_mouseAngleVector (get_global_mouse_position() - playerStatsRes.playerPosition)
 	playerStatsRes.set_mouseAngleRadians (atan2((get_global_mouse_position() - playerStatsRes.playerPosition).y, (get_global_mouse_position() - playerStatsRes.playerPosition).x))
+	playerStatsRes.set_player_movement_vector (input_vector)
 	
 
-func player_movement (input_vector):
+func player_movement ():
 #get inputs
 	input_vector.x = Input.get_action_strength ("move_right") - Input.get_action_strength ("move_left")
 	input_vector.y = Input.get_action_strength ("move_down") - Input.get_action_strength ("move_up")
@@ -85,3 +94,10 @@ func die (): #FIXME death animation and end screen
 	# particles like cables etc and black circle that gets smaller
 	queue_free()
 	pass
+
+
+func wallDetection_body_entered(body):
+	playerStatsRes.playerWallHit = true
+
+func wallDetection_body_exited(body):
+	playerStatsRes.playerWallHit = false

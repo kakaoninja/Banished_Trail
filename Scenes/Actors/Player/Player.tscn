@@ -1,14 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Sprites/Actors/Player/BasePlayerSprite.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Actors/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://PostProcess/lensflareLess4.png" type="Texture" id=3]
 [ext_resource path="res://PostProcess/roundLight40_40.png" type="Texture" id=4]
 [ext_resource path="res://PostProcess/roundLight20_20.png" type="Texture" id=5]
-
-[sub_resource type="CapsuleShape2D" id=7]
-radius = 5.0
-height = 0.0
 
 [sub_resource type="Animation" id=5]
 resource_name = "IdleLeft"
@@ -282,6 +278,12 @@ radius = 50.0
 radius = 3.0
 height = 14.0
 
+[sub_resource type="CircleShape2D" id=12]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 7.0
+
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
 collision_mask = 2
@@ -295,11 +297,6 @@ texture = ExtResource( 1 )
 hframes = 11
 vframes = 2
 frame = 2
-
-[node name="EnvironmentCollider" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 7 )
-shape = SubResource( 7 )
-one_way_collision_margin = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/IdleLeft = SubResource( 5 )
@@ -346,3 +343,18 @@ scale = Vector2( 0.325, 0.325 )
 texture = ExtResource( 5 )
 color = Color( 0.14902, 0.921569, 0.980392, 1 )
 energy = 0.1
+
+[node name="WallDetection" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="EnvironmentColliderDetect" type="CollisionShape2D" parent="WallDetection"]
+position = Vector2( 0, 7 )
+shape = SubResource( 12 )
+one_way_collision_margin = 0.0
+
+[node name="EnvironmentColliderPlayer" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 7 )
+shape = SubResource( 13 )
+one_way_collision_margin = 0.0
+
+[connection signal="body_entered" from="KnockbackArea" to="." method="_on_KnockbackArea_body_entered"]
