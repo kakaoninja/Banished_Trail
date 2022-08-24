@@ -257,6 +257,9 @@ extents = Vector2( 5, 1 )
 show_behind_parent = true
 z_index = -1
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
@@ -281,5 +284,5 @@ rotation = -1.5708
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AreaCollision"]
-position = Vector2( -1, 4 )
+position = Vector2( -2, 4 )
 shape = SubResource( 2 )

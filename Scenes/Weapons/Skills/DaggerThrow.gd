@@ -7,7 +7,10 @@ onready var areaCollision	= get_node ("AreaCollision")
 onready var parent			= get_parent()
 onready var sprite			= get_node ("Sprite")
 
-var offsetAngleRad		= 0.0
+var collisionObject
+var bounceVector
+
+var offsetAngle			= 0.0
 var rotationDegrees		= 0.0
 var rotationRadians		= 0.0
 
@@ -28,9 +31,9 @@ var projectileMove		= Vector2.ZERO
 var combinedVector		= Vector2.ZERO
 var combinedMove		= Vector2.ZERO
 
-var snapshotAimDegrees
-var snapshotPlayerVector
-var snapshotPlayerPosition
+var aimDegrees
+var playerVector
+var playerPosition
 
 func _ready():
 	areaCollision.connect ("body_entered", self, "collision_handling")
@@ -42,9 +45,13 @@ func _process(delta):
 	if animationStep >= 1.0:
 		curveFinished = true
 		animationStep = int (animationStep)
-		weaponSkillStatsRes.handle_snapshotAimDegrees (self, rad2deg(playerStatsRes.mouseAngleRadians))
-		weaponSkillStatsRes.handle_snapshotPlayerVector (self, playerStatsRes.playerMovementVector)
-		weaponSkillStatsRes.handle_snapshotPlayerPosition (self, playerStatsRes.playerPosition)
+		weaponSkillStatsRes.handle_aimDegrees (self, rad2deg(playerStatsRes.mouseAngleRadians))
+		weaponSkillStatsRes.handle_playerVector (self, playerStatsRes.playerMovementVector)
 
 func collision_handling (body):
+	pass
+
+
+func _on_AreaCollision_body_entered(body):
+	#print (body)
 	pass

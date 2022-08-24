@@ -1,4 +1,6 @@
-extends Control
+extends CanvasLayer
+
+var pauseUIStatsRes = load ("res://Resources/UIRes/PauseUIStatsRes.tres")
 
 export var audio_bus_name := "Master"
 onready var _bus := AudioServer.get_bus_index(audio_bus_name) #get index
@@ -6,11 +8,12 @@ var volume
 
 func _ready() -> void:
 	#OS.set_window_borderless(!OS.window_borderless)
+	pauseUIStatsRes.windowOnTop = true
 	volume = db2linear(AudioServer.get_bus_volume_db(_bus))
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause_menu"):
-		self.queue_free()
+		pauseUIStatsRes.queue_free_self (self)
 
 func _on_Fullscreen_toggled(button_pressed: bool) -> void:
 	OS.set_window_fullscreen(!OS.window_fullscreen)
@@ -35,4 +38,5 @@ func _on_SoundVolumeSlider_value_changed(value: float) -> void:
 
 
 func _on_Button_pressed() -> void:
-	self.queue_free()
+	pauseUIStatsRes.queue_free_self (self)
+	pauseUIStatsRes.windowOnTop = false

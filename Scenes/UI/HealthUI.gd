@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 export (Resource) var playerStatsRes  = load ("res://Resources/PlayerStatsRes.tres")
 

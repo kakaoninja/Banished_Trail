@@ -306,8 +306,8 @@ anims/RunLeft = SubResource( 9 )
 anims/RunRight = SubResource( 8 )
 
 [node name="KnockbackArea" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 0
+collision_layer = 0
+collision_mask = 8
 monitoring = false
 
 [node name="Knockback" type="CollisionShape2D" parent="KnockbackArea"]
@@ -316,7 +316,6 @@ shape = SubResource( 2 )
 [node name="KnockbackTimer" type="Timer" parent="KnockbackArea"]
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_layer = 0
 collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -345,7 +344,8 @@ color = Color( 0.14902, 0.921569, 0.980392, 1 )
 energy = 0.1
 
 [node name="WallDetection" type="Area2D" parent="."]
-collision_mask = 2
+collision_layer = 0
+collision_mask = 128
 
 [node name="EnvironmentColliderDetect" type="CollisionShape2D" parent="WallDetection"]
 position = Vector2( 0, 7 )
@@ -358,3 +358,4 @@ shape = SubResource( 13 )
 one_way_collision_margin = 0.0
 
 [connection signal="body_entered" from="KnockbackArea" to="." method="_on_KnockbackArea_body_entered"]
+[connection signal="body_entered" from="WallDetection" to="." method="_on_WallDetection_body_entered"]

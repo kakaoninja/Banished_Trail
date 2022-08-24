@@ -1,14 +1,28 @@
-[gd_resource type="Theme" load_steps=33 format=2]
+[gd_resource type="Theme" load_steps=34 format=2]
 
 [ext_resource path="res://UIThemes/Fonts/TextFont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Sprites/ThemeEdits/grabber_vec.svg" type="Texture" id=3]
-[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_round.tres" type="StyleBox" id=4]
+[ext_resource path="res://Sprites/ThemeEdits/grabberPixelHighlightThick.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/ThemeEdits/grabberPixel.png" type="Texture" id=3]
+[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_normal.tres" type="StyleBox" id=4]
 [ext_resource path="res://UIThemes/UIStyles/slider_texture.tres" type="StyleBox" id=5]
 [ext_resource path="res://UIThemes/Fonts/ButtonFont.tres" type="DynamicFont" id=6]
-[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_round_hover.tres" type="StyleBox" id=7]
-[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_round_pressed.tres" type="StyleBox" id=8]
+[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_hover.tres" type="StyleBox" id=7]
+[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_pressed.tres" type="StyleBox" id=8]
 [ext_resource path="res://Sprites/ThemeEdits/checkbox.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/ThemeEdits/checkbox_checked.png" type="Texture" id=10]
+[ext_resource path="res://UIThemes/UIStyles/styleboxSliderHightlight.tres" type="StyleBox" id=11]
+
+[sub_resource type="StyleBoxFlat" id=44]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color( 0.705882, 0.705882, 0.705882, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0.00784314, 0.0980392, 1 )
+corner_detail = 6
+anti_aliasing_size = 0.3
 
 [sub_resource type="DynamicFont" id=23]
 use_mipmaps = true
@@ -29,24 +43,13 @@ region = Rect2( 250, 644, 36, 36 )
 [sub_resource type="AtlasTexture" id=32]
 region = Rect2( 250, 544, 36, 36 )
 
-[sub_resource type="StyleBoxFlat" id=39]
-bg_color = Color( 0.847059, 0.847059, 0.847059, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0, 0, 0, 1 )
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
-expand_margin_top = 3.0
-expand_margin_bottom = 3.0
-
 [sub_resource type="StyleBoxFlat" id=38]
-bg_color = Color( 0, 0, 0, 1 )
+bg_color = Color( 0.823529, 0.823529, 0.823529, 1 )
+border_width_right = 6
+border_color = Color( 0, 0, 0, 0 )
 expand_margin_top = 1.0
 expand_margin_bottom = 1.0
+anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id=16]
 
@@ -59,13 +62,6 @@ margin_bottom = 9.43112
 
 [sub_resource type="AtlasTexture" id=18]
 region = Rect2( 812, 458, 28, 10 )
-
-[sub_resource type="StyleBoxTexture" id=19]
-region_rect = Rect2( 1, 310, 100, 100 )
-margin_left = 12.3202
-margin_right = 13.3469
-margin_top = 13.3469
-margin_bottom = 11.2935
 
 [sub_resource type="AtlasTexture" id=20]
 region = Rect2( 250, 544, 36, 36 )
@@ -137,7 +133,7 @@ Button/fonts/font = ExtResource( 6 )
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = ExtResource( 7 )
-Button/styles/normal = ExtResource( 4 )
+Button/styles/normal = SubResource( 44 )
 Button/styles/pressed = ExtResource( 8 )
 CheckBox/colors/font_color = Color( 0, 0, 0, 1 )
 CheckBox/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
@@ -172,10 +168,10 @@ CheckButton/styles/normal = null
 CheckButton/styles/pressed = null
 HSlider/icons/grabber = ExtResource( 3 )
 HSlider/icons/grabber_disabled = null
-HSlider/icons/grabber_highlight = ExtResource( 3 )
+HSlider/icons/grabber_highlight = ExtResource( 2 )
 HSlider/icons/tick = null
 HSlider/styles/grabber_area = ExtResource( 5 )
-HSlider/styles/grabber_area_highlight = SubResource( 39 )
+HSlider/styles/grabber_area_highlight = ExtResource( 11 )
 HSlider/styles/slider = SubResource( 38 )
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
@@ -212,7 +208,7 @@ OptionButton/styles/focus = null
 OptionButton/styles/hover = null
 OptionButton/styles/normal = null
 OptionButton/styles/pressed = null
-Panel/styles/panel = SubResource( 19 )
+Panel/styles/panel = ExtResource( 4 )
 PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
 PopupMenu/colors/font_color_accel = Color( 0.701961, 0.701961, 0.701961, 0.8 )
 PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )

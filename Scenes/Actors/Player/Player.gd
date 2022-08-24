@@ -101,3 +101,7 @@ func wallDetection_body_entered(body):
 
 func wallDetection_body_exited(body):
 	playerStatsRes.playerWallHit = false
+
+
+func _on_WallDetection_body_entered(body):
+	print (body)

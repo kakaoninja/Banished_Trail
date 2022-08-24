@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/UI/ConfirmationDialogue.gd" type="Script" id=2]
+[ext_resource path="res://UIThemes/Fonts/TimeandSpace-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://UIThemes/Fonts/ButtonFont_14.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/prefabScenes/BlurShader.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_normal.tres" type="StyleBox" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 10
+font_data = ExtResource( 3 )
+
+[node name="ConfirmationDialogue" type="CanvasLayer"]
+pause_mode = 2
+layer = 110
+script = ExtResource( 2 )
+
+[node name="Blurshader" parent="." instance=ExtResource( 5 )]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+show_behind_parent = true
+margin_left = 170.0
+margin_top = 135.0
+margin_right = 310.0
+margin_bottom = 135.0
+rect_min_size = Vector2( 140, 0 )
+mouse_filter = 2
+
+[node name="ContentBox" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 180.0
+margin_top = 91.0
+margin_right = 300.0
+margin_bottom = 179.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="space" type="MarginContainer" parent="CenterContainer/ContentBox"]
+margin_right = 120.0
+
+[node name="TopicLabel" type="Label" parent="CenterContainer/ContentBox"]
+margin_top = 4.0
+margin_right = 120.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = ExtResource( 6 )
+text = "Error"
+align = 1
+
+[node name="space2" type="MarginContainer" parent="CenterContainer/ContentBox"]
+margin_top = 27.0
+margin_right = 120.0
+margin_bottom = 27.0
+
+[node name="DescriptionLabel" type="Label" parent="CenterContainer/ContentBox"]
+margin_top = 31.0
+margin_right = 120.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Setting the text correctly for this popup failed. Better next luck time."
+align = 1
+autowrap = true
+
+[node name="buttonSep" type="HBoxContainer" parent="CenterContainer/ContentBox"]
+margin_top = 64.0
+margin_right = 120.0
+margin_bottom = 88.0
+alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="CenterContainer/ContentBox/buttonSep"]
+margin_left = 6.0
+margin_right = 34.0
+margin_bottom = 24.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 4 )
+enabled_focus_mode = 0
+text = "OK"
+align = 0
+
+[node name="space3" type="MarginContainer" parent="CenterContainer/ContentBox/buttonSep"]
+margin_left = 38.0
+margin_right = 58.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="cancel" type="Button" parent="CenterContainer/ContentBox/buttonSep"]
+margin_left = 62.0
+margin_right = 114.0
+margin_bottom = 24.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 4 )
+text = "CANCEL"
+align = 2
+
+[connection signal="button_up" from="CenterContainer/ContentBox/buttonSep/cancel" to="." method="_on_cancel_button_up"]
