@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/UI/HealthUI.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/HealthUI/ReactorShield.png" type="Texture" id=2]
@@ -7,8 +7,11 @@
 [ext_resource path="res://Sprites/UI/HealthUI/ReactorEmergencyCoreLowSaturation.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/HealthUI/EmergencyCoreGlowDarker.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/UI/HealthUI/ReactorCore.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/XPBar/xp_bottom_background.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/UI/Lights/CoreGlow.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/UI/HealthUI/ReactorOutlineThick.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/XPBar/xp_bottom_overlay.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/XPBar/xp_bottom_progress.png" type="Texture" id=12]
 
 [sub_resource type="Curve" id=1]
 min_value = 0.98
@@ -27,9 +30,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -240.0
-margin_top = -40.0
+margin_top = -44.0
 margin_right = 240.0
-margin_bottom = -8.0
+margin_bottom = -12.0
 grow_horizontal = 2
 rect_min_size = Vector2( 480, 32 )
 mouse_filter = 2
@@ -104,3 +107,14 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -8.0
+margin_right = 480.0
+rect_min_size = Vector2( 400, 0 )
+value = 43.0
+texture_under = ExtResource( 8 )
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 12 )

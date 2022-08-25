@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UIThemes/UITheme.tres" type="Theme" id=1]
+
+[node name="QuestItems" type="ScrollContainer"]
+margin_right = 128.0
+margin_bottom = 153.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+show_behind_parent = true
+margin_right = 128.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
