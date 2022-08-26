@@ -1,5 +1,5 @@
 extends Node2D
-onready var particlePath = ("res://Particles/ParticleResources/")
+onready var particlePath = ("res://Visuals/VisualObjects/")
 onready var animation = preload ("res://Scenes/Pregame/CharacterSelection/CharacterSelectionButton.tscn")
 var fileManipulator = load ("res://Resources/FileManipulation/FileManipulator.tres")
 

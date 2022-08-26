@@ -15,7 +15,7 @@ onready var knockback			= get_node	("KnockbackArea/Knockback")
 
 #effects
 
-onready var Lightning		= preload	("res://Particles/Lightning.tscn")
+onready var Lightning		= preload	("res://Visuals/Lightning.tscn")
 
 var movement		= Vector2.ZERO
 var input_vector	= Vector2.ZERO

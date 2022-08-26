@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Sprites/Animations/lightning.png" type="Texture" id=1]
-[ext_resource path="res://Particles/Lightning.gd" type="Script" id=2]
+[ext_resource path="res://Visuals/Lightning.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Animations/lightning.png" type="Texture" id=2]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.225352, 0.669014 )
@@ -32,8 +32,8 @@ modulate = Color( 1.5, 1.5, 1.5, 1 )
 amount = 5
 lifetime = 0.2
 process_material = SubResource( 3 )
-texture = ExtResource( 1 )
-script = ExtResource( 2 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Sprites/Animations/lightning.png" type="Texture" id=1]
-[ext_resource path="res://Particles/ParticleResources/RotatingWeaponShaderRes.tres" type="Material" id=2]
+[ext_resource path="res://Visuals/VisualObjects/RotatingWeaponShaderRes.tres" type="Material" id=2]
 
 [node name="Node2D" type="Node2D"]
 

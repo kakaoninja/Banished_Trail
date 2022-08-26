@@ -34,6 +34,9 @@ func handle_playerVector (skill, value):
 	if skill.playerVector == null:
 		skill.playerVector = value
 
+
+#change playerdirect to mousedirect
+
 func movement (parent, skill, delta):
 	if parent.is_in_group ("PROJECTILE"):
 		if skill.curveFinished == true:
@@ -135,10 +138,9 @@ func pivot_rotator (parent, skill, toRotate, particleNode, offsetAngle, rotDegre
 		offsetAngle = 0
 	if aiming == true and skill.curveFinished == false:
 		degreesToRotateParticle = rotDegrees + aimingDegrees
-		skill.rotation_degrees = aimingDegrees + offsetAngle
+		skill.rotation_degrees = aimingDegrees
 	elif skill.aimDegrees != null:
 		degreesToRotateParticle = rotDegrees + skill.aimDegrees
-		aimingDegrees = 0
 	else:
 		degreesToRotateParticle = rotDegrees
 	if parent.is_in_group ("CIRCULAR") and parent.is_in_group ("STATIONARY"):

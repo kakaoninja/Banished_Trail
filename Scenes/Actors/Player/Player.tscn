@@ -1,10 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Sprites/Actors/Player/BasePlayerSprite.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Actors/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://PostProcess/lensflareLess4.png" type="Texture" id=3]
 [ext_resource path="res://PostProcess/roundLight40_40.png" type="Texture" id=4]
 [ext_resource path="res://PostProcess/roundLight20_20.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/EffectResources/bayer16tile2.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Maps/Background.gd" type="Script" id=7]
+[ext_resource path="res://Sprites/world/scollingBackground.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=5]
 resource_name = "IdleLeft"
@@ -284,6 +287,51 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id=13]
 radius = 7.0
 
+[sub_resource type="Shader" id=14]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform sampler2D dither_texture;
+
+uniform vec2 player_position;
+
+uniform float circle_radius		: hint_range (0.1, 0.6);
+uniform int screen_height;
+uniform int screen_width;
+uniform float dither_size : hint_range (0.0, 0.5);
+
+uniform float tiling_scale = 1.0;
+
+float circle(vec2 position, float radius, float feather)
+{
+	return smoothstep(radius, radius + feather, length(position - player_position));
+}
+
+
+void fragment(){
+	vec4 color = texture (TEXTURE, UV);
+
+	vec2 uv = FRAGCOORD.xy;
+	vec2 tiling_uv = uv / (float(screen_width) / 32.0 * -1.0);
+	vec4 dither_result = texture(dither_texture, tiling_uv);
+	
+	float inner = 1.0 - circle(vec2(UV.x, UV.y), circle_radius, 0.05 * dither_result.g);
+	
+	COLOR = color;
+	COLOR.a -= inner;
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = SubResource( 14 )
+shader_param/player_position = Vector2( 0.5, 0.5 )
+shader_param/circle_radius = 0.1
+shader_param/screen_height = 480
+shader_param/screen_width = 270
+shader_param/dither_size = 0.5
+shader_param/tiling_scale = 1.0
+shader_param/dither_texture = ExtResource( 6 )
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -7 )
 z_index = 1
@@ -360,6 +408,12 @@ one_way_collision_margin = 0.0
 position = Vector2( 0, 7 )
 shape = SubResource( 13 )
 one_way_collision_margin = 0.0
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+material = SubResource( 15 )
+texture = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [connection signal="body_entered" from="KnockbackArea" to="." method="_on_KnockbackArea_body_entered"]
 [connection signal="body_entered" from="WallDetection" to="." method="_on_WallDetection_body_entered"]
