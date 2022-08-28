@@ -153,8 +153,8 @@ wind=false
 
 [gui]
 
-theme/custom="res://UIThemes/UITheme.tres"
-theme/custom_font="res://UIThemes/Fonts/TextFont.tres"
+theme/custom="res://Themes/UITheme.tres"
+theme/custom_font="res://Themes/Fonts/TextFont.tres"
 timers/tooltip_delay_sec=0.0
 
 [importer_defaults]

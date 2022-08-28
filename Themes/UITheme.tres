@@ -1,17 +1,17 @@
 [gd_resource type="Theme" load_steps=35 format=2]
 
-[ext_resource path="res://UIThemes/Fonts/TextFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Fonts/TextFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Sprites/ThemeEdits/grabberPixelHighlightThick.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/ThemeEdits/grabberPixel.png" type="Texture" id=3]
-[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_normal.tres" type="StyleBox" id=4]
-[ext_resource path="res://UIThemes/UIStyles/slider_texture.tres" type="StyleBox" id=5]
-[ext_resource path="res://UIThemes/Fonts/ButtonFont.tres" type="DynamicFont" id=6]
-[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_hover.tres" type="StyleBox" id=7]
-[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_pressed.tres" type="StyleBox" id=8]
-[ext_resource path="res://Sprites/ThemeEdits/checkbox.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/ThemeEdits/checkbox_checked.png" type="Texture" id=10]
-[ext_resource path="res://UIThemes/UIStyles/styleboxSliderHightlight.tres" type="StyleBox" id=11]
-[ext_resource path="res://Sprites/Items/Inventory.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/ThemeEdits/checkbox.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/ThemeEdits/checkbox_checked.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Items/Inventory.png" type="Texture" id=6]
+[ext_resource path="res://Themes/UIStyles/styleboxSliderHightlight.tres" type="StyleBox" id=7]
+[ext_resource path="res://Themes/UIStyles/stylebox_grey_normal.tres" type="StyleBox" id=8]
+[ext_resource path="res://Themes/UIStyles/slider_texture.tres" type="StyleBox" id=9]
+[ext_resource path="res://Themes/Fonts/ButtonFont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Themes/UIStyles/stylebox_grey_hover.tres" type="StyleBox" id=11]
+[ext_resource path="res://Themes/UIStyles/stylebox_grey_pressed.tres" type="StyleBox" id=12]
 
 [sub_resource type="StyleBoxFlat" id=44]
 content_margin_left = 8.0
@@ -53,7 +53,7 @@ expand_margin_bottom = 1.0
 anti_aliasing = false
 
 [sub_resource type="StyleBoxTexture" id=45]
-texture = ExtResource( 12 )
+texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 128, 64 )
 
 [sub_resource type="StyleBoxEmpty" id=16]
@@ -149,12 +149,12 @@ Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_hover = Color( 0.184314, 0.184314, 0.184314, 1 )
 Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
 Button/constants/hseparation = 2
-Button/fonts/font = ExtResource( 6 )
+Button/fonts/font = ExtResource( 10 )
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = ExtResource( 7 )
+Button/styles/hover = ExtResource( 11 )
 Button/styles/normal = SubResource( 44 )
-Button/styles/pressed = ExtResource( 8 )
+Button/styles/pressed = ExtResource( 12 )
 CheckBox/colors/font_color = Color( 0, 0, 0, 1 )
 CheckBox/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 CheckBox/colors/font_color_hover = Color( 0.34902, 0.34902, 0.34902, 1 )
@@ -163,8 +163,8 @@ CheckBox/colors/font_color_pressed = Color( 0.388235, 0.388235, 0.388235, 1 )
 CheckBox/constants/check_vadjust = 0
 CheckBox/constants/hseparation = -1
 CheckBox/fonts/font = SubResource( 23 )
-CheckBox/icons/checked = ExtResource( 10 )
-CheckBox/icons/unchecked = ExtResource( 9 )
+CheckBox/icons/checked = ExtResource( 5 )
+CheckBox/icons/unchecked = ExtResource( 4 )
 CheckBox/styles/hover = SubResource( 43 )
 CheckBox/styles/normal = SubResource( 41 )
 CheckBox/styles/pressed = SubResource( 42 )
@@ -190,8 +190,8 @@ HSlider/icons/grabber = ExtResource( 3 )
 HSlider/icons/grabber_disabled = null
 HSlider/icons/grabber_highlight = ExtResource( 2 )
 HSlider/icons/tick = null
-HSlider/styles/grabber_area = ExtResource( 5 )
-HSlider/styles/grabber_area_highlight = ExtResource( 11 )
+HSlider/styles/grabber_area = ExtResource( 9 )
+HSlider/styles/grabber_area_highlight = ExtResource( 7 )
 HSlider/styles/slider = SubResource( 38 )
 ItemList/styles/bg = SubResource( 45 )
 Label/colors/font_color = Color( 1, 1, 1, 1 )
@@ -229,7 +229,7 @@ OptionButton/styles/focus = null
 OptionButton/styles/hover = null
 OptionButton/styles/normal = null
 OptionButton/styles/pressed = null
-Panel/styles/panel = ExtResource( 4 )
+Panel/styles/panel = ExtResource( 8 )
 PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
 PopupMenu/colors/font_color_accel = Color( 0.701961, 0.701961, 0.701961, 0.8 )
 PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )

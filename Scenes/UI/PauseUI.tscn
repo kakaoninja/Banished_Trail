@@ -12,7 +12,7 @@
 [ext_resource path="res://sprites/UI/PauseIcon.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/UI/questionmark.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/Items/QuestItemsList.tscn" type="PackedScene" id=12]
-[ext_resource path="res://UIThemes/UITheme.tres" type="Theme" id=13]
+[ext_resource path="res://Themes/UITheme.tres" type="Theme" id=13]
 [ext_resource path="res://Sprites/Items/ItemsListBot.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Items/ItemsListTop.png" type="Texture" id=15]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://UIThemes/UITheme.tres" type="Theme" id=1]
+[ext_resource path="res://Themes/UITheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/UI/SettingsScripts/MasterLabel.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/UI/SettingsScripts/BloomIntensitySlider.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/UI/SettingsScripts/MasterVolumeSlider.gd" type="Script" id=4]
@@ -10,11 +10,11 @@
 [ext_resource path="res://Scenes/UI/SettingsScripts/SoundLabel.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/UI/SettingsScripts/MusicVolumeSlider.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/UI/SettingsScripts/SoundVolumeSlider.gd" type="Script" id=10]
-[ext_resource path="res://UIThemes/Fonts/TopicFont.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Themes/Fonts/TopicFont.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Scenes/prefabScenes/BlurShader.tscn" type="PackedScene" id=12]
-[ext_resource path="res://UIThemes/Fonts/TimeandSpace-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Themes/Fonts/TimeandSpace-Regular.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Sprites/ThemeEdits/checkbox_hover.png" type="Texture" id=14]
-[ext_resource path="res://UIThemes/UIStyles/stylebox_grey_normal.tres" type="StyleBox" id=15]
+[ext_resource path="res://Themes/UIStyles/stylebox_grey_normal.tres" type="StyleBox" id=15]
 [ext_resource path="res://Sprites/ThemeEdits/checkbox.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/ThemeEdits/checkbox_checked.png" type="Texture" id=17]
 

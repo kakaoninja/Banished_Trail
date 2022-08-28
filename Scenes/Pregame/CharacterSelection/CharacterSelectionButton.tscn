@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://UIThemes/UITheme.tres" type="Theme" id=1]
+[ext_resource path="res://Themes/UITheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/Pregame/CharacterSelection/CharacterSelectionButton.gd" type="Script" id=2]
-[ext_resource path="res://UIThemes/Fonts/PixelFont_10.tres" type="DynamicFont" id=3]
-[ext_resource path="res://UIThemes/UIStyles/stylebox_violet_tint.tres" type="StyleBox" id=4]
+[ext_resource path="res://Themes/Fonts/PixelFont_10.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Themes/UIStyles/stylebox_violet_tint.tres" type="StyleBox" id=4]
 [ext_resource path="res://Sprites/Actors/Player/BasePlayerSprite.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]

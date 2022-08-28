@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://temp_startmenu.jpg" type="Texture" id=1]
-[ext_resource path="res://UIThemes/Fonts/TimeandSpace-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Themes/Fonts/TimeandSpace-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/UI/StartMenu.gd" type="Script" id=3]
 [ext_resource path="res://sprites/UI/settingsbutton.png" type="Texture" id=4]
 [ext_resource path="res://sprites/UI/settingsbutton_hover.png" type="Texture" id=5]
@@ -9,7 +9,7 @@
 [ext_resource path="res://sprites/UI/quitbutton_pressed.png" type="Texture" id=7]
 [ext_resource path="res://sprites/UI/quitbutton_hover.png" type="Texture" id=8]
 [ext_resource path="res://sprites/UI/settingsbutton_pressed.png" type="Texture" id=9]
-[ext_resource path="res://UIThemes/UITheme.tres" type="Theme" id=13]
+[ext_resource path="res://Themes/UITheme.tres" type="Theme" id=13]
 
 [sub_resource type="DynamicFont" id=2]
 size = 40

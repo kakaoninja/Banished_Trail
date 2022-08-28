@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Pregame/CharacterSelection/CharacterSelection.gd" type="Script" id=1]
-[ext_resource path="res://UIThemes/Fonts/TopicFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Themes/Fonts/TopicFont.tres" type="DynamicFont" id=2]
 
 [node name="CharacterSelection" type="CanvasLayer"]
 

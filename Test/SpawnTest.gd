@@ -1,6 +1,6 @@
 extends Node
 var tilesetSize = 16 #FIXME, this needs to be in pathfinding
-# 5 is a perfect number as i can check if its divideable :)
+
 enum BaseTypes {
 	NORMY,
 	SPEEDY,
@@ -13,13 +13,10 @@ enum BaseTypes {
 #FIXME
 onready var REStestEnemy = preload ("res://Scenes/Actors/Enemies/EnemyBase.tscn")
 
-
-#spawning circle animation that shrinks over 2-3 secs
-
 onready var timer = get_node ("Timer")
 
 export var spawnResources	= 4.0
-export var timeScaling		= 0.0 #FIXME time scaling
+export var timeScaling		= 0.0
 export var rawTime			= 0.0
 var difficulty				= 1.3 #determines the base difficulty of the game
 
