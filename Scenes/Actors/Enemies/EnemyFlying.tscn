@@ -81,12 +81,15 @@ frame = 4
 shape = SubResource( 1 )
 
 [node name="Hurtbox" type="Area2D" parent="."]
-position = Vector2( 0, -24 )
+position = Vector2( 0, -23 )
 collision_layer = 0
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FlyingLeft = SubResource( 3 )
@@ -95,7 +98,7 @@ anims/RESET = SubResource( 5 )
 
 [node name="ParticleR" type="Particles2D" parent="."]
 show_behind_parent = true
-position = Vector2( 2.5, -19 )
+position = Vector2( 2.5, -18 )
 amount = 3
 lifetime = 0.3
 process_material = ExtResource( 3 )
@@ -103,7 +106,7 @@ texture = ExtResource( 4 )
 
 [node name="ParticleL" type="Particles2D" parent="."]
 show_behind_parent = true
-position = Vector2( -2.5, -19 )
+position = Vector2( -2.5, -18 )
 amount = 3
 lifetime = 0.3
 process_material = ExtResource( 3 )
